@@ -20,7 +20,7 @@ switch(app.get('env')){
 		throw new Error('Unknown execution environment: ' + app.get('env'));
 }
 
-var Test = require('./models/test.js');
+var Picture = require('./models/picture.js');
 
 app.use(express.static('public'));
 app.set('port', process.env.PORT || 3000);
@@ -35,13 +35,17 @@ app.get('/', function(req, res) {
 })
 
 app.get('/about', function(req, res) {
-	Test.find(function(err, tests){
-		console.log(tests.length);
+	Picture.find(function(err, pics){
+		console.log(pics.length);
 		var context = {
-			tests: tests.map(function(test){
+			tests: pics.map(function(picture){
 				return {
-					name: test.name,
-					ID: test.ID
+					address: picture.address,
+					ID: picture.ID,
+					link: picture.link,
+					altText: picture.altText,
+					//firstTag: picture.tags[0],
+					time: picture.time
 				}
 			})
 		};
@@ -50,7 +54,7 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/json', function(req, res){
-	var foo = require('Data/test.json');
+	var foo = require('Data/picture.json');
 	console.log(foo)
 	res.render("home");
 })
@@ -66,18 +70,16 @@ app.use(function(err, req, res, next) {
 	res.render(500);
 })
 
-Test.find(function(err, tests){
+Picture.find(function(err, pics){
 	if(err) return console.error(err);
-	if(tests.length) return;
+	if(pics.length) return;
 
-	new Test({
-		name: "test1",
-		ID: 1,
-	}).save();
-
-	new Test({
-		name: "test2",
-		ID: 2
+	new Picture({
+		name: "test",
+		ID: "000",
+		link: "src/pic1.jpg",
+		altText: "Error displaying picture"
+		//tags: ["None"]
 	}).save();
 });
 
