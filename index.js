@@ -35,8 +35,19 @@ app.get('/', function(req, res) {
 })
 
 app.get('/about', function(req, res) {
-	res.render('about');
-})
+	Test.find(function(err, tests){
+		console.log(tests.length);
+		var context = {
+			tests: tests.map(function(test){
+				return {
+					name: test.name,
+					ID: test.ID
+				}
+			})
+		};
+		res.render('about', context);
+	});
+});
 
 app.get('/json', function(req, res){
 	var foo = require('Data/test.json');
