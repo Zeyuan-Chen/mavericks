@@ -1,0 +1,5 @@
+#ignore packages created by Mac OSX
+.DS_Store
+
+#ignore packages installed by npm
+node_modules
