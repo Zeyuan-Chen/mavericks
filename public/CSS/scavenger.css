@@ -20,9 +20,9 @@ li :hover {
     margin:0 auto;
     height: 40px;*/
     	border-top: 1px solid #CCCCCC;
-        background-color: #191a1a;
-        background-image: url("../../public/Files/bkg-2.png");
-        background-position: left top;
+        background-color: #282828;
+        background-image: url("../../public/Files/bkg-22.png");
+        background-position: center top;
         background-repeat: no-repeat;
         width:100%;
         height:130px;
