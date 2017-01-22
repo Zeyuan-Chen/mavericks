@@ -1,12 +1,9 @@
 <h1>About Mavericks</h1>
-{{#each tests}}
-‘CSS/scan.css’
+{{#each pics}}
 	<div >
-		<h3>{{address}}</h3>
-		<h3>{{ID}}</h3>
-		<h3>{{link}}</h3>
-		<h3>{{altText}}</h3>
-		<h3>{{firstTag}}</h3>
-		<h3>{{time}}</h3>
+		<a href="{{link}}">
+			<img src="{{address}}" alt="{{altText}}">
+		</a>
+		<h3>tags: {{tags}}</h3>
 	</div>
 {{/each}}
