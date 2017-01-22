@@ -27,7 +27,7 @@ li :hover {
         height:130px;
 
 }
-#logo {
+#sitelogo {
 		display:block;
 		margin-top:8px;
         width:250px;
@@ -90,5 +90,56 @@ li :hover {
 
 }
 
+#grid {
+	line-height: 0;
+
+	-webkit-column-count: 3;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    3;
+  -moz-column-gap:      0px;
+  column-count:         3;
+  column-gap:           0px; 
+  margin-top: 8px;
+}
+
+#grid img {
+	  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 10px 30px 10px 30px;
+  margin-left: 15px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  
+}
 
 
+@media (max-width: 1200px) {
+  #grid {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+/*@media (max-width: 1000px) {
+  #grid {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}*/
+@media (max-width: 800px) {
+  #grid {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+
+@media (max-width: 400px) {
+  #grid {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
