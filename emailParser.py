@@ -89,7 +89,7 @@ def process_mailbox(M, mode="ALL"):
 
 while True:
 	print("Processing mailbox...\n")
-	process_mailbox(M, "ALL")
+	process_mailbox(M, "Unseen")
 	print("Processing finished")
 	time.sleep(300)
 
