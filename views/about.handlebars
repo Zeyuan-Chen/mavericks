@@ -1,7 +1,10 @@
 <h1>About Mavericks</h1>
 <script type="text/javascript">
-	$("h1").click(function(){
-		$("h1").hide();
+	$("a > img").each(function(){
+		console.log($(this).height(), $(this).width());
+		if(($(this).height() < 350 && $(this).width() < 350) && $(this).attr('class') != "logo") {
+			$(this).hide();
+		}
 	});
 </script>
 {{#each pics}}
