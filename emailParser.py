@@ -17,7 +17,7 @@ client = MongoClient('mongodb://admin:abcdef@ds117819.mlab.com:17819/mavericks')
 db = client.get_default_database()
 pictures = db['pictures']
 M = imaplib.IMAP4_SSL('imap.gmail.com')
-brands = ["nike", "adidas", "kohls", "timberland", "asos", "asics", "uniqlo", "diesel"]
+brands = ["nike", "realmadrid", "kohls", "timberland", "asics", "uniqlo", "diesel", "abercrombie", ]
 
 try:
     M.login('mavericks.sbhacks@gmail.com', 'qawsedrftg')
