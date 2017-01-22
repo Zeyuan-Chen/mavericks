@@ -1,1 +1,10 @@
-<h1>Welcome to Mavericks SBHacks project</h1>
+<div id="grid">
+{{#each pics}}
+	<div >
+		<a href="{{link}}">
+			<img src="{{address}}" alt="{{altText}}">
+		</a>
+		<h3 style="display: none">tags: {{tags}}</h3>
+	</div>
+{{/each}}
+</div>

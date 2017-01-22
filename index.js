@@ -31,10 +31,6 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/', function(req, res) {
-	res.render('home');
-})
-
-app.get('/about', function(req, res) {
 	Picture.find(function(err, pics){
 		console.log(pics.length);
 		var context = {
@@ -47,8 +43,12 @@ app.get('/about', function(req, res) {
 				}
 			})
 		};
-		res.render('about', context);
+		res.render('home', context);
 	});
+})
+
+app.get('/about', function(req, res) {
+	res.render('about', context);
 });
 
 /*
@@ -68,19 +68,6 @@ app.use(function(err, req, res, next) {
 	res.status(500);
 	res.render(500);
 })
-
-Picture.find(function(err, pics){
-	if(err) return console.error(err);
-	if(pics.length) return;
-
-	new Picture({
-		name: "test",
-		ID: "000",
-		link: "src/pic1.jpg",
-		altText: "Error displaying picture"
-		//tags: ["None"]
-	}).save();
-});
 
 app.listen(app.get('port'), function(){
 	console.log( 'Express started on http://localhost:' + app.get('port') + '; press Ctrl - C to terminate')

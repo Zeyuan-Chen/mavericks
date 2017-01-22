@@ -23,7 +23,7 @@
                     
                 <li><a href=""><img class = "logo" id ="diesel" src="Files/diesel.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="hm" src="Files/h&m.png" alt="lol"></a></li>
+                <li><a href=""><img class = "logo" id ="anf" src="Files/anf.png" alt="lol"></a></li>
                     
                 <li><a href=""><img class = "logo" id ="asics" src="Files/asics.png" alt="lol"></a></li>
                     
@@ -31,23 +31,6 @@
         </ul>
 
         </div>
-
-    	<div id="grid">
-			<img src="Files/pic1.jpg">
-			<img src="Files/pic2.jpg">
-			<img src="Files/pic3.jpg">
-			<img src="Files/pic4.jpg">
-			<img src="Files/pic5.jpg">
-			<img src="Files/pic6.jpg">
-			<img src="Files/pic7.jpg">
-			<img src="Files/pic8.jpg">
-			<img src="Files/pic9.jpg">
-			<img src="Files/pic10.jpg">
-
-
-
-
-    	</div>
 
 	{{{body}}}
 	</body>
@@ -57,11 +40,11 @@
 		}
 
 		$("div > a > img").each(function(){
-			console.log($(this).height(), $(this).width());
+			console.log($(this)[0].naturalHeight, $(this)[0].naturalWidth);
 			if ($(this).attr('class') !== "logo") {
-				if($(this).height() < 350 && $(this).width() < 350) {
+				if($(this)[0].naturalHeight < 350 && $(this)[0].naturalHeight < 350) {
 					$(this).parent().parent().hide();
-				} else if (proportionNotCorrect($(this).height(), $(this).width())){
+				} else if (proportionNotCorrect($(this)[0].naturalHeight, $(this)[0].naturalWidth)){
 					$(this).parent().parent().hide();
 				}
 			}
