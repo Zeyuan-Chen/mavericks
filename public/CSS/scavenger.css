@@ -29,10 +29,10 @@ li :hover {
 }
 #sitelogo {
 		display:block;
-		margin-top:8px;
-        width:250px;
+		margin-top:15px;
+        width:290px;
         margin:auto;
-        padding: 25px;
+        padding: 33px;
 
 }
 #nike {
@@ -113,6 +113,9 @@ li :hover {
   
 }
 
+.trivial {
+  display: none;
+}
 
 @media (max-width: 1200px) {
   #grid {
