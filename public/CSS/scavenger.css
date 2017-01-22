@@ -27,7 +27,7 @@ li :hover {
         height:130px;
 
 }
-#logo {
+#sitelogo {
 		display:block;
 		margin-top:8px;
         width:250px;
@@ -99,13 +99,20 @@ li :hover {
   -moz-column-gap:      0px;
   column-count:         3;
   column-gap:           0px; 
+  margin-top: 8px;
 }
 
 #grid img {
 	  /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
-  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
 }
 
 @media (max-width: 1200px) {
