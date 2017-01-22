@@ -12,7 +12,7 @@ li {
 }
 
 li :hover {
-    background-color: #C3C3C3;
+    background-color: #BFBFBF;
 }
 
 #topbar {
@@ -20,7 +20,10 @@ li :hover {
     margin:0 auto;
     height: 40px;*/
     	border-top: 1px solid #CCCCCC;
-        background-color: #4F4F4F;
+        background-color: #191a1a;
+        background-image: url("../../public/Files/bkg-2.png");
+        background-position: left top;
+        background-repeat: no-repeat;
         width:100%;
         height:130px;
 
@@ -37,6 +40,8 @@ li :hover {
 		padding: 13px;
 		width: auto;
 		height: 39px;
+		/*margin-left: 15px;
+		margin-right: 15px;*/
 
 }
 #adidas {
@@ -65,17 +70,17 @@ li :hover {
 }
 #hm {
 		padding: 15px;
-		width:40px;
+		width:38px;
 
 }
 #asics {
 		padding: 15px;
-		width: 80px;
+		width: 78px;
 
 }
 #uniqlo {
 		padding: 14px;
-		width: 30px;
+		width: 34px;
 
 }
 
