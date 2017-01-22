@@ -12,11 +12,12 @@ import datetime
 from pymongo import MongoClient
 import time
 
-visual_recognition = VisualRecognitionV3('2016-05-20', api_key='9f58a65ffdcc876c48a907966174efe1d395e374')
+visual_recognition = VisualRecognitionV3('2017-06-22', api_key='93b477cab6e97e71c6e83c344f36c65eeb60cc96')
 client = MongoClient('mongodb://admin:abcdef@ds117819.mlab.com:17819/mavericks')
 db = client.get_default_database()
 pictures = db['pictures']
 M = imaplib.IMAP4_SSL('imap.gmail.com')
+brands = ["nike", "adidas", "kohls", "timberland", "asos", "asics", "uniqlo", "diesel"]
 
 try:
     M.login('mavericks.sbhacks@gmail.com', 'qawsedrftg')
@@ -41,6 +42,10 @@ def objTranslate(jsonObj, linkUrl):
 	classes = jsonObj["images"][0]["classifiers"][0]["classes"]
 	for tag in classes:
 		obj['tags'].append(tag["class"])
+	for brand in brands:
+		if brand in obj['link']:
+			obj['tags'].append(brand)
+			break
 	obj['time'] = datetime.datetime.now()
 	databaseUpload(obj)
 
@@ -84,7 +89,8 @@ def process_mailbox(M, mode="ALL"):
 
 while True:
 	print("Processing mailbox...\n")
-	process_mailbox(M, "Unseen")
+	process_mailbox(M, "ALL")
+	print("Processing finished")
 	time.sleep(300)
 
 client.close()

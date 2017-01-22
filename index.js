@@ -44,7 +44,7 @@ app.get('/about', function(req, res) {
 					ID: picture.ID,
 					link: picture.link,
 					altText: picture.altText,
-					//firstTag: picture.tags[0],
+					firstTag: picture.tags,
 					time: picture.time
 				}
 			})
