@@ -50,7 +50,7 @@ def objTranslate(jsonObj, linkUrl):
 	databaseUpload(obj)
 
 def imgRecognition(imgUrl, linkUrl):
-	objTranslate(visual_recognition.classify(images_url=imgUrl, threshold=0.7), linkUrl)
+	objTranslate(visual_recognition.classify(images_url=imgUrl, threshold=0.8), linkUrl)
 
 def htmlToImgs(html):
 	soup = BeautifulSoup(quopri.decodestring(html))
