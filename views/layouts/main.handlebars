@@ -9,25 +9,25 @@
 
 	<body>
 		<div id="topbar" style="background-image: url('Files/bkg-22.png');">
-			<a href="main.handlebars"><img class = "logo" id ="sitelogo" src="Files/font_logo.png" alt="lol"></a>	
+			<a href="#" onclick="selectBrand('')();"><img class = "logo" id ="sitelogo" src="Files/font_logo.png" alt="lol"></a>	
 		</div>
 		<div id="menu_bar"> 
 		<ul> 
-                <li><a href=""><img class = "logo" id ="nike" src="Files/nike.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('nike')();"><img class = "logo" id ="nike" src="Files/nike.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="adidas" src="Files/adidas.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('realmadrid')();"><img class = "logo" id ="adidas" src="Files/adidas.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="khols" src="Files/khols.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('kohls')();"><img class = "logo" id ="khols" src="Files/khols.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="timberland" src="Files/timberland.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('timberland')();"><img class = "logo" id ="timberland" src="Files/timberland.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="diesel" src="Files/diesel.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('diesel')();"><img class = "logo" id ="diesel" src="Files/diesel.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="anf" src="Files/anf.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('abercrombie')();"><img class = "logo" id ="anf" src="Files/anf.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="asics" src="Files/asics.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('asics')();"><img class = "logo" id ="asics" src="Files/asics.png" alt="lol"></a></li>
                     
-                <li><a href=""><img class = "logo" id ="uniqlo" src="Files/uniqlo.png" alt="lol"></a></li>
+                <li><a href="#" onclick="selectBrand('uniqlo')();"><img class = "logo" id ="uniqlo" src="Files/uniqlo.png" alt="lol"></a></li>
         </ul>
 
         </div>
@@ -39,13 +39,28 @@
 			return x/y > 3 || y/x > 3;
 		}
 
+		function selectBrand(arg) {
+			var brand = arg;
+			return function(){
+				$("div > a > img").each(function(){
+					var thisCls = $(this).parent().parent().attr('class');
+					if(thisCls !== 'trivial' && $(this).attr('class') != 'logo'){
+						if($(this).parent().next().text().includes(brand))
+							$(this).parent().parent().show();
+						else
+							$(this).parent().parent().hide();
+					}
+				});
+
+			};
+		}
+
 		$("div > a > img").each(function(){
-			console.log($(this)[0].naturalHeight, $(this)[0].naturalWidth);
 			if ($(this).attr('class') !== "logo") {
 				if($(this)[0].naturalHeight < 350 && $(this)[0].naturalHeight < 350) {
-					$(this).parent().parent().hide();
+					$(this).parent().parent().addClass('trivial');
 				} else if (proportionNotCorrect($(this)[0].naturalHeight, $(this)[0].naturalWidth)){
-					$(this).parent().parent().hide();
+					$(this).parent().parent().addClass('trivial');
 				}
 			}
 		});
