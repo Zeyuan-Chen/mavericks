@@ -38,14 +38,12 @@ app.get('/about', function(req, res) {
 	Picture.find(function(err, pics){
 		console.log(pics.length);
 		var context = {
-			tests: pics.map(function(picture){
+			pics: pics.map(function(picture){
 				return {
 					address: picture.address,
-					ID: picture.ID,
 					link: picture.link,
 					altText: picture.altText,
-					firstTag: picture.tags,
-					time: picture.time
+					tags: picture.tags
 				}
 			})
 		};
