@@ -1,6 +1,5 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var probe = require('probe-image-size');
 var opts = {
 	server: {
 		socketOptions: {keepAlive: 1}
