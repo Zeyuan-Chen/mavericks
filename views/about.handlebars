@@ -1,12 +1,4 @@
 <h1>About Mavericks</h1>
-<script type="text/javascript">
-	$("a > img").each(function(){
-		console.log($(this).height(), $(this).width());
-		if(($(this).height() < 350 && $(this).width() < 350) && $(this).attr('class') != "logo") {
-			$(this).hide();
-		}
-	});
-</script>
 {{#each pics}}
 	<div >
 		<a href="{{link}}">
@@ -15,3 +7,20 @@
 		<h3>tags: {{tags}}</h3>
 	</div>
 {{/each}}
+
+<script type="text/javascript">
+	var proportionNotCorrect = function(x, y) {
+		return x/y > 3 || y/x > 3;
+	}
+
+	$("div > a > img").each(function(){
+		console.log($(this).height(), $(this).width());
+		if ($(this).attr('class') !== "logo") {
+			if($(this).height() < 350 && $(this).width() < 350) {
+				$(this).parent().parent().hide();
+			} else if (proportionNotCorrect($(this).height(), $(this).width())){
+				$(this).parent().parent().hide();
+			}
+		}
+	});
+</script>
