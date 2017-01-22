@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var probe = require('probe-image-size');
 var opts = {
 	server: {
 		socketOptions: {keepAlive: 1}
@@ -43,7 +44,7 @@ app.get('/about', function(req, res) {
 					address: picture.address,
 					link: picture.link,
 					altText: picture.altText,
-					tags: picture.tags
+					tags: picture.tags					
 				}
 			})
 		};
@@ -51,12 +52,13 @@ app.get('/about', function(req, res) {
 	});
 });
 
+/*
 app.get('/json', function(req, res){
 	var foo = require('Data/picture.json');
 	console.log(foo)
 	res.render("home");
 })
-
+*/
 app.use(function(req, res, next) {
 	res.status(404);
 	res.render('404');
